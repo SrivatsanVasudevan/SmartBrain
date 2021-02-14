@@ -36,11 +36,12 @@ class Register extends React.Component{
     })
     .then(response => response.json())
     .then(user => {
-      if(user.name !== undefined && user.password !== undefined && user.email !== undefined){
+      if(user.name !== undefined && user.email !== undefined){
         this.props.loadUser(user);
         this.props.onRouteChange('home');
       }
       else{
+        console.log(user.name, user.password, user.email);
         console.log('error, incorrect user registration');
       }
     });
